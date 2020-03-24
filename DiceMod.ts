@@ -9,7 +9,7 @@ const _sum = require('lodash/sum');
  * 
  * @author cata 
  */
-export class DiceMod {
+class DiceMod {
 
     regex = /^(\d*)d(\d*)$/;
     
@@ -84,3 +84,5 @@ export class DiceMod {
         return this.regex.test(s);
     }
 }
+
+module.exports = DiceMod
