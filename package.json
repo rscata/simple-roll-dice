@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "description": "A simple dice roll",
   "main": "lib/DiceMod.js",
-  "types": "lib/index.d.ts",
+  "types": "lib/DiceMod.d.ts",
   "dependencies": {
     "@types/node": "^13.9.3",
     "lodash": "^4.17.15"
