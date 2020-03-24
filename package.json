@@ -1,0 +1,27 @@
+{
+  "name": "simple-roll-dice",
+  "version": "1.0.1",
+  "description": "A simple dice roll",
+  "main": "DiceMod.ts",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rscata/simple-roll-dice.git"
+  },
+  "keywords": [
+    "roll",
+    "dice"
+  ],
+  "author": "rscata",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rscata/simple-roll-dice/issues"
+  },
+  "homepage": "https://github.com/rscata/simple-roll-dice#readme"
+}
