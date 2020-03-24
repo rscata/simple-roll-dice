@@ -9,7 +9,7 @@ const _sum = require('lodash/sum');
  * 
  * @author cata 
  */
-class DiceMod {
+export class DiceMod {
 
     regex = /^(\d*)d(\d*)$/;
     
@@ -19,7 +19,7 @@ class DiceMod {
      * @private
      * @memberof DiceMod
      */
-    private parse = function (s) {
+    private parse = function (s: string | undefined) {
 
         // check if is valie
         if (!this.validate(s)) {
@@ -84,5 +84,3 @@ class DiceMod {
         return this.regex.test(s);
     }
 }
-
-module.exports = DiceMod

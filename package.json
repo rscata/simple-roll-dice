@@ -2,13 +2,21 @@
   "name": "simple-roll-dice",
   "version": "1.0.1",
   "description": "A simple dice roll",
-  "main": "DiceMod.ts",
+  "main": "lib/DiceMod.js",
+  "types": "lib/index.d.ts",
   "dependencies": {
+    "@types/node": "^13.9.3",
     "lodash": "^4.17.15"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "tsc",
+    "prepare": "npm run build",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -23,5 +31,6 @@
   "bugs": {
     "url": "https://github.com/rscata/simple-roll-dice/issues"
   },
-  "homepage": "https://github.com/rscata/simple-roll-dice#readme"
+  "homepage": "https://github.com/rscata/simple-roll-dice#readme",
+  "files": ["lib/**/*"]
 }
