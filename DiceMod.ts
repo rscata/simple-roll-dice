@@ -1,0 +1,86 @@
+"use strict";
+
+const _random = require('lodash/random');
+const _sum = require('lodash/sum');
+
+
+/**
+ * Dices module
+ * 
+ * @author cata 
+ */
+export class DiceMod {
+
+    regex = /^(\d*)d(\d*)$/;
+    
+    /**
+     * Parse input
+     * 
+     * @private
+     * @memberof DiceMod
+     */
+    private parse = function (s) {
+
+        // check if is valie
+        if (!this.validate(s)) {
+            throw new Error(s);
+        }
+
+        const match = this.regex.exec(s),
+            quantity = match[1],
+            sides = match[2];
+
+        return {
+            quantity: quantity ? parseInt(quantity, 10) : 1,
+            sides: sides === '%' ? 100 : parseInt(sides, 10),
+            toString: function () {
+                return s;
+            }
+        };
+    }
+
+    /**
+     * Roll dice
+     * 
+     * @param {string} input 2d6 where:
+     *           2 - number of dices
+     *           6 - number of sides
+     * 
+     * @returns {Array} dice values and sum
+     * @example 
+     *      returns {sides: [1,3], sum: 4}
+     */
+    public roll(input: string, multiplicationIfDoubled: boolean = true) {
+        let inputPars: { quantity: any; sides: any; toString?: () => any; };
+        if (!input) {
+            throw new Error();
+        } else if (typeof input === 'string') {
+            inputPars = this.parse(input);
+        }
+
+        const diceArr = [];
+        for (let i = 0; i < inputPars.quantity; i++) {
+            diceArr[i] = _random(1, inputPars.sides);
+        }
+
+        if (true === multiplicationIfDoubled) {
+            if (diceArr[0] === diceArr[1]) {
+                diceArr.push(diceArr[0], diceArr[1]);
+            }
+        }
+
+        return {
+            sides: diceArr,
+            sum: _sum(diceArr)
+        }
+    }
+
+
+    /**
+     * Validate input 
+     * @param  {string} s
+     */
+    private validate = function (s: string) {
+        return this.regex.test(s);
+    }
+}
