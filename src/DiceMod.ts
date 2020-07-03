@@ -18,7 +18,7 @@ export class DiceMod {
    * @memberof DiceMod
    */
   private parse = function (s: string | undefined) {
-    // check if is valie
+    // check if is valid
     if (!this.validate(s)) {
       throw new Error(s);
     }
